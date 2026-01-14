@@ -3,128 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhan Food | Official Store</title>
+    <title>Subhan Food | Premium Order Desk</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
-        .urdu { font-family: 'Noto Nastaliq Urdu', serif; line-height: 2.3; }
-        
-        body {
-            background: #020617; /* Deep Dark Theme */
-            color: white;
-        }
-
-        .premium-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
+        .urdu { font-family: 'Noto Nastaliq Urdu', serif; line-height: 2.2; }
+        body { background: #0f172a; color: white; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+            transition: 0.3s;
         }
-
-        .premium-card:hover {
-            border-color: #f59e0b;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px #f59e0b;
+        .glass-card:hover { transform: translateY(-5px); border-color: #fbbf24; }
+        .btn-order {
+            background: linear-gradient(to right, #991b1b, #dc2626);
+            transition: 0.3s;
         }
-
-        .gold-text {
-            background: linear-gradient(to right, #f59e0b, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .order-panel {
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 0 40px rgba(245, 158, 11, 0.2);
-        }
+        .btn-order:active { scale: 0.95; }
     </style>
 </head>
-<body class="p-3 md:p-8">
+<body class="p-4 md:p-10">
 
-    <div class="max-w-5xl mx-auto text-center py-10">
-        <h1 class="text-5xl md:text-7xl font-black gold-text mb-2 tracking-tighter">SUBHAN FOODS</h1>
-        <p class="urdu text-xl text-gray-400">ساہیوال کے بہترین اور خالص مصالحہ جات</p>
-        <div class="h-1 w-24 bg-red-600 mx-auto mt-4 rounded-full"></div>
+    <div class="max-w-6xl mx-auto text-center mb-12">
+        <h1 class="text-5xl md:text-7xl font-black text-yellow-500 italic uppercase">SUBHAN FOODS</h1>
+        <p class="urdu text-xl mt-4 text-gray-300">ساہیوال کے نمبر 1 خالص مصالحہ جات</p>
+        <div class="h-1 w-24 bg-red-600 mx-auto mt-4"></div>
     </div>
 
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
         
-        <h2 class="urdu text-2xl text-center mb-8 gold-text">ہماری پروڈکٹس</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1615485290382-441e4d019cb5?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">سرخ مرچ</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">ہلدی پاؤڈر</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1532336414038-cf1905044314?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">کالی مرچ</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">گرم مصالحہ</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1591524311059-399d34346894?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">دھنیا پاؤڈر</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">زیرہ سفید</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1626131713360-1768469e32a6?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">سبز الائچی</p>
-            </div>
-            <div class="premium-card p-4 text-center">
-                <img src="https://images.unsplash.com/photo-1512429234300-1c098934df4e?q=80&w=200" class="rounded-xl mb-3 opacity-90">
-                <p class="urdu font-bold">قصوری میتھی</p>
-            </div>
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1615485290382-441e4d019cb5?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">سرخ مرچ پاؤڈر</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
         </div>
 
-        <div class="order-panel overflow-hidden mb-12">
-            <div class="bg-gradient-to-r from-red-800 to-red-600 p-6 text-center">
-                <h2 class="urdu text-3xl font-bold text-white">آرڈر بک کریں</h2>
-            </div>
-            <div class="w-full relative bg-white" style="height: 850px; overflow: hidden;">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSeyMdGGEUPoMsGqz9cE55Et0FJDPGyWNgRmgqc3dYm1r_pVrQ/viewform?embedded=true" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0"
-                    style="position:absolute; top:0; left:0;">
-                    Loading…
-                </iframe>
-            </div>
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">ہلدی پاؤڈر</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
         </div>
 
-        <div class="premium-card overflow-hidden bg-slate-900 border-2 border-blue-500 mb-20">
-            <div class="p-4 bg-blue-900 flex justify-between items-center">
-                <h3 class="urdu text-lg font-bold">آرڈرز کی لائیو تفصیل</h3>
-                <span class="text-[10px] text-blue-300">ADMIN CONTROL</span>
-            </div>
-            <div class="h-[500px] w-full overflow-auto bg-white">
-                <iframe 
-                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEQ8g0KPj2cS_xhkEXRaDXYrfpnQ4kXk3RHeJrsfdchJtxh1et5DFNXT7MOnsbwh4OqWlipS_Jv6Hn/pubhtml?widget=true&amp;headers=false" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0">
-                </iframe>
-            </div>
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1532336414038-cf1905044314?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">کالی مرچ</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
         </div>
 
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">گرم مصالحہ</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
+        </div>
+
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1591524311059-399d34346894?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">دھنیا پاؤڈر</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
+        </div>
+
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">زیرہ سفید</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
+        </div>
+
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1626131713360-1768469e32a6?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">سبز الائچی</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
+        </div>
+
+        <div class="glass-card p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1512429234300-1c098934df4e?w=200" class="rounded-xl mx-auto mb-3 h-32 object-cover">
+            <p class="urdu font-bold mb-2 text-yellow-400">قصوری میتھی</p>
+            <a href="#order-form" class="btn-order text-xs px-4 py-2 rounded-full font-bold inline-block">ORDER NOW</a>
+        </div>
+
+    </div>
+
+    <div id="order-form" class="max-w-4xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden border-8 border-yellow-500 mb-20">
+        <div class="bg-red-800 p-6 text-center">
+            <h2 class="urdu text-3xl font-bold text-white">آرڈر بکنگ سینٹر</h2>
+        </div>
+        <div class="h-[850px] w-full">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSeyMdGGEUPoMsGqz9cE55Et0FJDPGyWNgRmgqc3dYm1r_pVrQ/viewform?embedded=true" 
+                width="100%" height="100%" frameborder="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto glass-card overflow-hidden border-t-8 border-blue-600 mb-20">
+        <div class="bg-blue-900 p-4 text-center font-bold urdu">موصول شدہ آرڈرز کی لسٹ</div>
+        <div class="h-[500px] w-full bg-white">
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEQ8g0KPj2cS_xhkEXRaDXYrfpnQ4kXk3RHeJrsfdchJtxh1et5DFNXT7MOnsbwh4OqWlipS_Jv6Hn/pubhtml?widget=true&amp;headers=false" 
+                width="100%" height="100%" frameborder="0"></iframe>
+        </div>
     </div>
 
     <footer class="text-center pb-10">
-        <div class="inline-block border-2 border-yellow-500 rounded-3xl px-12 py-6 bg-slate-900">
-            <p class="urdu text-xl gold-text">رابطہ برائے آرڈر</p>
-            <p class="text-3xl font-black text-white mt-1 tracking-tighter">0301-6926409</p>
-            <p class="text-gray-500 text-[10px] mt-2 uppercase tracking-widest">Sahiwal Punjab Pakistan</p>
+        <div class="inline-block p-6 glass-card border-yellow-500 border-2">
+            <p class="urdu text-xl text-yellow-400 font-bold italic">رابطہ نمبر: 0301-6926409</p>
+            <p class="text-gray-500 text-xs mt-2">Sahiwal, Punjab</p>
         </div>
     </footer>
 
