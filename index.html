@@ -3,75 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhan Food | E-commerce Store</title>
+    <title>Subhan Food | Official Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
         .urdu { font-family: 'Noto Nastaliq Urdu', serif; }
-        body { background: #fdfcf0; color: #1a1a1a; }
-        .product-card { transition: 0.3s; border: 2px solid transparent; cursor: pointer; }
-        .product-card.selected { border-color: #b91c1c; background: #fff1f2; transform: scale(1.05); }
-        .cart-badge { background: #b91c1c; color: white; padding: 2px 8px; border-radius: 99px; }
+        body { background: #f8fafc; color: #1e293b; }
+        .product-card { transition: 0.3s; border: 2px solid #e2e8f0; border-radius: 20px; cursor: pointer; background: white; }
+        .product-card.selected { border-color: #b91c1c; background: #fff1f2; box-shadow: 0 10px 15px -3px rgba(185, 28, 28, 0.2); }
+        .footer-admin { opacity: 0.1; transition: 0.5s; }
+        .footer-admin:hover { opacity: 1; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-10">
 
-    <header class="bg-red-800 text-white p-6 shadow-xl text-center border-b-4 border-yellow-500 sticky top-0 z-50">
-        <h1 class="text-3xl font-black">SUBHAN FOODS</h1>
-        <p class="urdu text-sm mt-1">ساہیوال کے خالص مصالحہ جات</p>
+    <header class="bg-red-800 text-white p-8 shadow-2xl text-center border-b-8 border-yellow-500">
+        <h1 class="text-4xl font-black tracking-tighter">SUBHAN FOODS</h1>
+        <p class="urdu text-lg mt-2 text-yellow-300 font-bold underline decoration-wavy">آرڈر کے لیے آئٹمز منتخب کریں</p>
     </header>
 
-    <div class="max-w-5xl mx-auto px-4 mt-8">
+    <div class="max-w-5xl mx-auto px-4 mt-10">
         
-        <div class="flex justify-between items-center mb-6">
-            <h2 class="urdu text-2xl font-bold text-red-800">1. آئٹمز منتخب کریں</h2>
-            <div class="urdu text-sm">منتخب شدہ: <span id="cart-count" class="cart-badge">0</span></div>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12" id="grid">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12" id="product-grid">
             </div>
 
-        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-red-800">
-            <h2 class="urdu text-2xl font-bold text-center text-red-800 mb-8">2. آرڈر مکمل کریں</h2>
+        <div class="bg-white rounded-[40px] shadow-2xl p-6 md:p-10 border-t-8 border-red-700">
+            <h2 class="urdu text-3xl font-bold text-center text-red-800 mb-8">آرڈر مکمل کریں</h2>
             
-            <form id="order-form" class="space-y-4">
-                <input type="hidden" id="selected_items" name="selected_items">
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="urdu block mb-1">نام (Full Name)</label>
-                        <input type="text" id="from_name" name="from_name" required class="w-full border-2 rounded-xl p-3 bg-gray-50 focus:border-red-600 outline-none">
-                    </div>
-                    <div>
-                        <label class="urdu block mb-1">فون نمبر (Phone)</label>
-                        <input type="number" id="phone" name="phone" required class="w-full border-2 rounded-xl p-3 bg-gray-50 focus:border-red-600 outline-none">
-                    </div>
-                </div>
-
+            <div class="space-y-5">
                 <div>
-                    <label class="urdu block mb-1">پتہ (Address)</label>
-                    <textarea id="address" name="address" required class="w-full border-2 rounded-xl p-3 bg-gray-50 focus:border-red-600 outline-none" rows="3"></textarea>
+                    <label class="urdu block font-bold text-gray-700 mb-1">آپ کا مکمل نام:</label>
+                    <input type="text" id="cust-name" class="w-full border-2 border-gray-200 rounded-2xl p-4 focus:border-red-600 outline-none transition shadow-sm" placeholder="Naam likhein...">
+                </div>
+                <div>
+                    <label class="urdu block font-bold text-gray-700 mb-1">فون نمبر:</label>
+                    <input type="number" id="cust-phone" class="w-full border-2 border-gray-200 rounded-2xl p-4 focus:border-red-600 outline-none transition shadow-sm" placeholder="03016926409">
+                </div>
+                <div>
+                    <label class="urdu block font-bold text-gray-700 mb-1">گھر کا پتہ (Delivery Address):</label>
+                    <textarea id="cust-address" class="w-full border-2 border-gray-200 rounded-2xl p-4 focus:border-red-600 outline-none transition shadow-sm" rows="3" placeholder="Sahiwal delivery address..."></textarea>
                 </div>
 
-                <div class="bg-red-50 p-4 rounded-xl">
-                    <p class="urdu font-bold text-red-800 mb-2">آپ کے منتخب کردہ آئٹمز:</p>
-                    <div id="display-items" class="text-sm font-bold text-gray-700">کچھ بھی منتخب نہیں کیا گیا</div>
+                <div class="bg-yellow-50 p-6 rounded-3xl border-2 border-dashed border-yellow-400">
+                    <p class="urdu font-bold text-red-800 text-lg mb-2 text-center border-b border-yellow-200 pb-2">آپ کے منتخب کردہ آئٹمز</p>
+                    <div id="cart-list" class="text-center font-black text-gray-800 py-2">کوئی آئٹم منتخب نہیں کیا گیا</div>
                 </div>
 
-                <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-black py-4 rounded-2xl shadow-lg text-xl transition active:scale-95">
-                    CONFIRM ORDER (آرڈر بھیجیں)
+                <button onclick="sendOrder()" class="w-full bg-red-700 hover:bg-red-800 text-white font-black py-5 rounded-3xl shadow-xl text-2xl transition active:scale-95 flex items-center justify-center gap-3">
+                    <span>CONFIRM ORDER</span>
+                    <span class="urdu">(آرڈر مکمل کریں)</span>
                 </button>
-            </form>
+            </div>
         </div>
     </div>
 
-    <div class="max-w-5xl mx-auto mt-20 px-4">
-        <h3 class="urdu text-center text-xl font-bold mb-4">آرڈرز کی لائیو لسٹ</h3>
-        <div class="rounded-2xl overflow-hidden border-2 border-gray-300 h-[400px]">
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEQ8g0KPj2cS_xhkEXRaDXYrfpnQ4kXk3RHeJrsfdchJtxh1et5DFNXT7MOnsbwh4OqWlipS_Jv6Hn/pubhtml?widget=true&amp;headers=false" width="100%" height="100%"></iframe>
+    <footer class="mt-20 text-center">
+        <p class="urdu text-gray-400 text-sm">سبحان فوڈ پروڈکٹس - ساہیوال</p>
+        <div class="footer-admin mt-4">
+            <a href="https://docs.google.com/spreadsheets/d/1e7jnNX2YYNmEk0xDZyKivU2B9HKx4fRkoJVcdCS-Mjo/edit#responses" target="_blank" class="text-xs text-gray-300 underline">Admin Login (Orders List)</a>
         </div>
-    </div>
+    </footer>
 
     <script>
         const products = [
@@ -87,43 +78,47 @@
 
         let cart = [];
 
-        function initGrid() {
-            const grid = document.getElementById('grid');
+        function init() {
+            const grid = document.getElementById('product-grid');
             grid.innerHTML = products.map(p => `
-                <div onclick="toggleItem(${p.id}, '${p.name}')" id="p-${p.id}" class="product-card bg-white p-4 rounded-2xl shadow-md text-center">
-                    <img src="${p.img}" class="h-24 w-full object-cover rounded-xl mb-2">
-                    <p class="urdu font-bold text-sm">${p.name}</p>
+                <div onclick="selectItem(${p.id}, '${p.name}')" id="item-${p.id}" class="product-card p-4 text-center shadow-lg">
+                    <img src="${p.img}" class="h-28 w-full object-cover rounded-2xl mb-3 shadow-inner">
+                    <p class="urdu font-black text-red-900">${p.name}</p>
                 </div>
             `).join('');
         }
 
-        function toggleItem(id, name) {
-            const index = cart.indexOf(name);
-            const el = document.getElementById(`p-${id}`);
-            if(index > -1) {
-                cart.splice(index, 1);
+        function selectItem(id, name) {
+            const idx = cart.indexOf(name);
+            const el = document.getElementById(`item-${id}`);
+            if(idx > -1) {
+                cart.splice(idx, 1);
                 el.classList.remove('selected');
             } else {
                 cart.push(name);
                 el.classList.add('selected');
             }
-            document.getElementById('cart-count').innerText = cart.length;
-            document.getElementById('display-items').innerText = cart.length > 0 ? cart.join(', ') : "کچھ بھی منتخب نہیں کیا گیا";
-            document.getElementById('selected_items').value = cart.join(', ');
+            document.getElementById('cart-list').innerText = cart.length > 0 ? cart.join(' | ') : "کوئی آئٹم منتخب نہیں کیا گیا";
         }
 
-        // Email Functionality
-        (function() { emailjs.init("YOUR_USER_ID"); })(); // Yahan User ID lagegi
+        function sendOrder() {
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const addr = document.getElementById('cust-address').value;
 
-        document.getElementById('order-form').onsubmit = function(e) {
-            e.preventDefault();
-            if(cart.length === 0) { alert("Pehle masala select karein!"); return; }
+            if(!name || !phone || cart.length === 0) {
+                alert("Bhai, naam, number aur masale lazmi select karein!");
+                return;
+            }
+
+            // Professional Invoice Message
+            const msg = `*--- NEW ORDER: SUBHAN FOODS ---*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${addr}%0A%0A*Items:*%0A${cart.join('%0A- ')}%0A%0A*Status:* Pending Verification`;
             
-            alert("Order Submit ho gaya! (Email set karne ke baad aapko mil jayegi)");
-            // EmailJS yahan se call hoga
-        };
+            // Ye aapka WhatsApp number hai
+            window.open(`https://wa.me/923016926409?text=${msg}`, '_blank');
+        }
 
-        initGrid();
+        init();
     </script>
 </body>
 </html>
