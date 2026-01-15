@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhan Traders | Premium Order Desk</title>
+    <title>Subhan Traders | Premium Spices</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
@@ -17,21 +17,10 @@
 
         .bg-watermark {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: -1;
-            font-size: 10vw;
-            font-weight: 900;
-            color: white;
-            text-transform: uppercase;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: space-around;
+            align-items: center; opacity: 0.03; pointer-events: none; z-index: -1;
+            font-size: 10vw; font-weight: 900; color: white; text-transform: uppercase;
         }
 
         .glass {
@@ -39,12 +28,19 @@
             backdrop-filter: blur(10px);
             border-radius: 1.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .product-bounce:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-            border-color: #fbbf24;
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-bottom: 6px solid #fbbf24;
+        }
+
+        .img-container {
+            height: 120px;
+            overflow: hidden;
+            border-radius: 1rem;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -66,54 +62,74 @@
         
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 px-2">
             
-            <div class="glass p-3 text-center product-bounce border-b-4 border-red-600">
-                <img src="LINK_1" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-red-600">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">سرخ مرچ</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-yellow-500">
-                <img src="LINK_2" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-yellow-500">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">ہلدی پاؤڈر</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-black">
-                <img src="LINK_3" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-black">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1532336414038-cf1905044314?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">کالی مرچ</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-orange-600">
-                <img src="LINK_4" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-orange-600">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">گرم مصالحہ</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-green-600">
-                <img src="LINK_5" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-green-700">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1588941031804-d022ec197f29?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">دھنیا پاؤڈر</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-red-400">
-                <img src="LINK_6" class="rounded-xl mb-2 h-32 w-full object-cover">
-                <p class="urdu font-bold text-red-800 text-sm">کٹی مرچ</p>
-            </div>
-
-            <div class="glass p-3 text-center product-bounce border-b-4 border-yellow-700">
-                <img src="LINK_7" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-yellow-700">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1615484477778-ca3b77942c25?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">زیرہ سفید</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-blue-600">
-                <img src="LINK_8" class="rounded-xl mb-2 h-32 w-full object-cover">
-                <p class="urdu font-bold text-red-800 text-sm">قصوری میتھی</p>
-            </div>
-
-            <div class="glass p-3 text-center product-bounce border-b-4 border-pink-600">
-                <img src="LINK_9" class="rounded-xl mb-2 h-32 w-full object-cover">
+            <div class="glass p-3 text-center product-card border-b-4 border-red-900">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1611712142469-2aa970d68d14?w=300" class="w-full h-full object-cover">
+                </div>
                 <p class="urdu font-bold text-red-800 text-sm">لونگ</p>
             </div>
 
-            <div class="glass p-3 text-center product-bounce border-b-4 border-purple-600">
-                <img src="LINK_10" class="rounded-xl mb-2 h-32 w-full object-cover">
-                <p class="urdu font-bold text-red-800 text-sm">بڑی الائچی</p>
+            <div class="glass p-3 text-center product-card border-b-4 border-green-500">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1596797038530-2c39da0a7aa3?w=300" class="w-full h-full object-cover">
+                </div>
+                <p class="urdu font-bold text-red-800 text-sm">سبز الائچی</p>
+            </div>
+
+            <div class="glass p-3 text-center product-card border-b-4 border-amber-900">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa4f0c32754e?w=300" class="w-full h-full object-cover">
+                </div>
+                <p class="urdu font-bold text-red-800 text-sm">دار چینی</p>
+            </div>
+
+            <div class="glass p-3 text-center product-card border-b-4 border-pink-700">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1509358271058-acd22cc93898?w=300" class="w-full h-full object-cover">
+                </div>
+                <p class="urdu font-bold text-red-800 text-sm">مکس مصالحہ</p>
             </div>
 
         </div>
