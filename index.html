@@ -3,133 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhan Food | Official Store</title>
+    <title>Subhan Traders | Premium Order Desk</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap');
-        .urdu { font-family: 'Noto Nastaliq Urdu', serif; }
-        body { background: #fdfcf0; color: #1a1a1a; }
-        .product-card { transition: 0.3s; border: 2px solid #e2e8f0; border-radius: 20px; background: white; overflow: hidden; }
-        .qty-btn { background: #b91c1c; color: white; width: 30px; height: 30px; border-radius: 8px; font-weight: bold; }
+        .urdu { font-family: 'Noto Nastaliq Urdu', serif; line-height: 2.2; }
+        
+        body {
+            background: #0f172a;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Watermark Styles */
+        .bg-watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0.05; /* Isay aap kam ya zyada kar sakte hain */
+            pointer-events: none;
+            z-index: -1;
+            font-size: 8vw;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .premium-border {
+            border-top: 6px solid #fbbf24; 
+            border-bottom: 6px solid #991b1b; 
+        }
+
+        .product-bounce:hover {
+            transform: scale(1.05);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
     </style>
 </head>
-<body class="pb-20">
+<body class="p-2 md:p-6 text-slate-100">
 
-    <header class="bg-red-800 text-white p-6 shadow-xl text-center border-b-4 border-yellow-500 sticky top-0 z-50">
-        <h1 class="text-3xl font-black">SUBHAN FOOD PRODUCTS</h1>
-        <p class="urdu text-sm mt-1">خالص مصالحہ جات - ساہیوال</p>
-    </header>
-
-    <div class="max-w-5xl mx-auto px-4 mt-10">
-        
-        <h2 class="urdu text-2xl font-bold text-red-800 mb-6">1. آئٹمز منتخب کریں</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12" id="product-list">
-            </div>
-
-        <div class="bg-white rounded-[30px] shadow-2xl p-6 md:p-10 border-2 border-red-800">
-            <h2 class="urdu text-2xl font-bold text-red-800 mb-6 text-center">2. آرڈر مکمل کریں</h2>
-            
-            <form id="order-form" class="space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="text" id="user_name" placeholder="آپ کا نام" required class="border-2 rounded-xl p-3 outline-none focus:border-red-600">
-                    <input type="number" id="user_phone" placeholder="فون نمبر" required class="border-2 rounded-xl p-3 outline-none focus:border-red-600">
-                </div>
-                <textarea id="user_address" placeholder="گھر کا پتہ (Delivery Address)" required class="w-full border-2 rounded-xl p-3 outline-none focus:border-red-600" rows="2"></textarea>
-
-                <div class="bg-gray-100 p-6 rounded-2xl border-l-8 border-red-700">
-                    <p class="urdu font-bold mb-2">آپ کا بل:</p>
-                    <div id="cart-items-display" class="text-sm space-y-1 mb-3">کوئی آئٹم منتخب نہیں کیا گیا</div>
-                    <div class="border-t pt-2 text-xl font-black text-red-800">Total: Rs. <span id="total-price">0</span></div>
-                </div>
-
-                <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-black py-4 rounded-2xl shadow-lg text-xl transition active:scale-95">
-                    CONFIRM ORDER (Email bhejain)
-                </button>
-            </form>
-        </div>
+    <div class="bg-watermark">
+        <div>SUBHAN TRADERS</div>
+        <div>SUBHAN TRADERS</div>
+        <div>SUBHAN TRADERS</div>
     </div>
 
-    <script>
-        // EmailJS Init (Aap apni Key yahan lagayenge)
-        (function() { emailjs.init("YOUR_PUBLIC_KEY"); })();
+    <div class="max-w-4xl mx-auto text-center mb-8 pt-6">
+        <h1 class="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500 italic drop-shadow-sm">
+            SUBHAN TRADERS
+        </h1>
+        <div class="h-1 w-32 bg-yellow-500 mx-auto mt-2 rounded-full"></div>
+        <p class="urdu text-white text-xl mt-4">اعلیٰ کوالٹی کے تازہ مصالحہ جات</p>
+    </div>
 
-        const products = [
-            { id: 1, name: "سرخ مرچ پاؤڈر", price: 250, img: "https://images.unsplash.com/photo-1615485290382-441e4d019cb5?w=200" },
-            { id: 2, name: "ہلدی پاؤڈر", price: 180, img: "https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=200" },
-            { id: 3, name: "کالی مرچ", price: 400, img: "https://images.unsplash.com/photo-1532336414038-cf1905044314?w=200" },
-            { id: 4, name: "گرم مصالحہ", price: 350, img: "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=200" },
-            { id: 5, name: "دھنیا پاؤڈر", price: 120, img: "https://images.unsplash.com/photo-1591524311059-399d34346894?w=200" },
-            { id: 6, name: "زیرہ سفید", price: 200, img: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=200" },
-            { id: 7, name: "سبز الائچی", price: 600, img: "https://images.unsplash.com/photo-1626131713360-1768469e32a6?w=200" },
-            { id: 8, name: "قصوری میتھی", price: 100, img: "https://images.unsplash.com/photo-1512429234300-1c098934df4e?w=200" }
-        ];
+    <div class="max-w-4xl mx-auto space-y-10">
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-2">
+            <div class="glass p-3 text-center product-bounce border-b-4 border-red-600">
+                <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?q=80&w=400" class="rounded-2xl mb-2 h-32 w-full object-cover shadow-md" alt="Red Chili">
+                <p class="urdu font-bold text-red-800">سرخ مرچ</p>
+            </div>
+            <div class="glass p-3 text-center product-bounce border-b-4 border-yellow-500">
+                <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?q=80&w=400" class="rounded-2xl mb-2 h-32 w-full object-cover shadow-md" alt="Turmeric">
+                <p class="urdu font-bold text-red-800">ہلدی پاؤڈر</p>
+            </div>
+            <div class="glass p-3 text-center product-bounce border-b-4 border-red-600">
+                <img src="https://images.unsplash.com/photo-1532336414038-cf1905044314?q=80&w=400" class="rounded-2xl mb-2 h-32 w-full object-cover shadow-md" alt="Black Pepper">
+                <p class="urdu font-bold text-red-800">کالی مرچ</p>
+            </div>
+            <div class="glass p-3 text-center product-bounce border-b-4 border-yellow-500">
+                <img src="https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=400" class="rounded-2xl mb-2 h-32 w-full object-cover shadow-md" alt="Garam Masala">
+                <p class="urdu font-bold text-red-800">گرم مصالحہ</p>
+            </div>
+        </div>
 
-        let cart = {};
+        <div class="glass premium-border overflow-hidden">
+            <div class="bg-gradient-to-r from-red-900 to-red-700 p-6 text-center shadow-inner">
+                <h2 class="urdu text-3xl font-bold text-white tracking-wide">آرڈر بکنگ سینٹر</h2>
+                <div class="text-yellow-400 text-xs mt-1 font-bold tracking-widest uppercase">Secure & Fast Checkout</div>
+            </div>
+            
+            <div class="relative bg-white" style="height: 800px;">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeyMdGGEUPoMsGqz9cE55Et0FJDPGyWNgRmgqc3dYm1r_pVrQ/viewform?embedded=true" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0"
+                    class="rounded-b-3xl">
+                    Loading…
+                </iframe>
+            </div>
+        </div>
 
-        function renderProducts() {
-            const container = document.getElementById('product-list');
-            container.innerHTML = products.map(p => `
-                <div class="product-card p-4 shadow-sm text-center">
-                    <img src="${p.img}" class="h-28 w-full object-cover rounded-xl mb-3">
-                    <p class="urdu font-bold">${p.name}</p>
-                    <p class="text-red-700 font-black">Rs. ${p.price}</p>
-                    <div class="flex justify-center items-center gap-4 mt-3 bg-gray-50 p-2 rounded-lg">
-                        <button onclick="changeQty(${p.id}, -1)" class="qty-btn">-</button>
-                        <span id="qty-${p.id}" class="font-bold">0</span>
-                        <button onclick="changeQty(${p.id}, 1)" class="qty-btn">+</button>
-                    </div>
-                </div>
-            `).join('');
-        }
+        <div class="glass border-t-8 border-blue-900 overflow-hidden">
+            <div class="bg-slate-800 p-4 flex justify-between items-center px-6">
+                <span class="flex h-3 w-3 rounded-full bg-green-500 animate-ping"></span>
+                <h2 class="urdu text-xl font-bold text-white">تازہ ترین آرڈرز کی لسٹ</h2>
+                <i class="text-slate-400 text-xs">Admin Only</i>
+            </div>
+            <div class="h-[450px] w-full overflow-auto p-2 bg-slate-50">
+                <iframe 
+                    src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEQ8g0KPj2cS_xhkEXRaDXYrfpnQ4kXk3RHeJrsfdchJtxh1et5DFNXT7MOnsbwh4OqWlipS_Jv6Hn/pubhtml?widget=true&amp;headers=false" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0">
+                </iframe>
+            </div>
+        </div>
 
-        function changeQty(id, delta) {
-            if(!cart[id]) cart[id] = 0;
-            cart[id] += delta;
-            if(cart[id] < 0) cart[id] = 0;
-            document.getElementById(`qty-${id}`).innerText = cart[id];
-            updateSummary();
-        }
+    </div>
 
-        function updateSummary() {
-            let total = 0;
-            let itemsHtml = "";
-            let orderText = "";
+    <footer class="mt-16 mb-10 text-center">
+        <div class="glass inline-block px-10 py-6 text-red-900">
+            <p class="urdu text-xl font-bold">رابطہ برائے معلومات</p>
+            <p class="text-2xl font-black mt-2 tracking-tighter">0301-6926409</p>
+            <p class="text-gray-500 text-xs mt-2 italic uppercase">📍 Sahiwal, Punjab, Pakistan</p>
+        </div>
+    </footer>
 
-            products.forEach(p => {
-                if(cart[p.id] > 0) {
-                    const cost = p.price * cart[p.id];
-                    total += cost;
-                    itemsHtml += `<div class="flex justify-between"><span>${p.name} (x${cart[p.id]})</span> <span>Rs. ${cost}</span></div>`;
-                    orderText += `${p.name} (Qty: ${cart[p.id]}), `;
-                }
-            });
-
-            document.getElementById('cart-items-display').innerHTML = itemsHtml || "کوئی آئٹم منتخب نہیں کیا گیا";
-            document.getElementById('total-price').innerText = total;
-            return { orderText, total };
-        }
-
-        document.getElementById('order-form').onsubmit = function(e) {
-            e.preventDefault();
-            const summary = updateSummary();
-            if(summary.total === 0) { alert("Pehle items select karein!"); return; }
-
-            const templateParams = {
-                to_email: "apka-email@gmail.com", // Aapka email
-                from_name: document.getElementById('user_name').value,
-                phone: document.getElementById('user_phone').value,
-                address: document.getElementById('user_address').value,
-                order_details: summary.orderText,
-                total_bill: summary.total
-            };
-
-            console.log("Sending Email...", templateParams);
-            alert("Shukriya! Order Submit ho gaya. Detail aapko Email mil jayegi.");
-            // emailjs.send('SERVICE_ID', 'TEMPLATE_ID', templateParams);
-        };
-
-        renderProducts();
-    </script>
 </body>
 </html>
